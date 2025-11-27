@@ -1,4 +1,4 @@
-# Cognome Nome
+#
 By Li Lisheng - ITIS P. Paleocapa a.s. 2025/2026
 
 # Titolo
