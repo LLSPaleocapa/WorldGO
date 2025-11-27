@@ -51,24 +51,15 @@ https://worldgo-dovevuoi.lovable.app
 Sviluppare una piattaforma community-based per aiutare gli utenti a scoprire, pianificare e migliorare i propri viaggi, facendo leva su esperienze reali condivise da altri viaggiatori.
 
 ## Funzionalità principali
-- Pubblicazione di itinerari completi (tappe, descrizioni, durata, foto)
+- Pubblicazione di posts completi (tappe, descrizioni, durata, foto)
 - Consigli di viaggio e raccomandazioni personalizzate
-- Valutazioni e like sugli itinerari
+- Valutazioni e like sui posts
 - Commenti e interazioni social
 - Ricerca per destinazione, tema di viaggio, durata
 - Pagina profilo con viaggi pubblicati e salvati
-- Feed dinamico basato su preferenze e tendenze
-
-## Funzionalità future / avanzate
-- Algoritmo di suggerimento basato su AI
-- Possibilità di generare itinerari automatici
-- Chat tra utenti
-- Mappe interattive più avanzate
-- Badge e gamification per la community
 
 ## Requisiti non funzionali
 - UI semplice e moderna
 - Prestazioni ottimizzate e caricamenti rapidi
-- Compatibilità mobile-first
-- Sicurezza dei dati e privacy
-- Scalabilità per supportare una community ampia
+- Compatibilità mobile
+- Scalabilità
