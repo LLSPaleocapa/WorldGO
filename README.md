@@ -1,13 +1,12 @@
 By Li Lisheng - ITIS P. Paleocapa a.s. 2025/2026
 
-# Titolo
-WorldGO – Community Travel Planner
+# WorldGO
 
 # Tagline
-La piattaforma che trasforma le esperienze dei viaggiatori in ispirazione reale.
+"Dove vuoi, come vuoi"
 
 # Descrizione
-WorldGO è una piattaforma community-based pensata per aiutare gli utenti a scoprire nuove destinazioni, pianificare viaggi personalizzati e condividere esperienze reali con altri viaggiatori.
+WorldGO è un'applicazione community-based per aiutare gli utenti a trovare le migliori soluzioni per programmare viaggi di vacanza, sfruttando esperienze reali e consigli condivisi da altri utenti
 
 # Descrizione Completa
 WorldGO nasce con l’obiettivo di creare un ambiente collaborativo in cui ogni viaggiatore possa ispirarsi alle esperienze altrui e contribuire alla community con i propri itinerari.
@@ -33,23 +32,15 @@ L’interfaccia intuitiva e gli strumenti social rendono la pianificazione di un
 # Competitors
 - TripAdvisor
 - Lonely Planet Trips
-- Polarsteps
-- Wanderlog
-- Visited / Journey
-- Minube
+- WeRoad
 
 # Tecnologie
-- Frontend: React / Next.js
-- Backend: Node.js / Express oppure NestJS
-- Database: MongoDB / PostgreSQL
-- Autenticazione: JWT / OAuth
-- Hosting: Vercel / Netlify / Render / AWS
-- Design: TailwindCSS / Material UI
-- API esterne: Mapbox / Google Maps, OpenWeather API
+- HTML, CSS, Javascript
+- PHP
+- MySQL
 
 # Link pubblico alla web app WorldGO
-Inserisci qui il link alla versione deployata
-Esempio: https://worldgo.app
+[WorldGO Web App](https://lilisheng5ie.altervista.org/)
 
 # Analisi dei Requisiti
 
