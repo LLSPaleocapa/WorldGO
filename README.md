@@ -42,6 +42,9 @@ L’interfaccia intuitiva e gli strumenti social rendono la pianificazione di un
 # Link pubblico alla web app WorldGO
 [WorldGO Web App](https://lilisheng5ie.altervista.org/)
 
+# Prototipo
+https://worldgo-dovevuoi.lovable.app
+
 # Analisi dei Requisiti
 
 ## Obiettivo
