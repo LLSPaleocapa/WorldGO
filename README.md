@@ -12,12 +12,11 @@ WorldGO è un'applicazione community-based per aiutare gli utenti a trovare le m
 WorldGO nasce con l’obiettivo di creare un ambiente collaborativo in cui ogni viaggiatore possa ispirarsi alle esperienze altrui e contribuire alla community con i propri itinerari.
 
 Gli utenti possono:
-- Pubblicare itinerari di viaggio dettagliati
+- Pubblicare posts di viaggio dettagliati
 - Consigliare destinazioni e attività
 - Valutare le proposte di altri utenti
 - Commentare e interagire all’interno della community
-- Salvare e organizzare itinerari personali
-- Ottenere suggerimenti basati sulle preferenze del profilo
+- Salvare e organizzare posts personali
 
 L’interfaccia intuitiva e gli strumenti social rendono la pianificazione di un viaggio semplice, coinvolgente e personalizzata.
 
@@ -26,7 +25,6 @@ L’interfaccia intuitiva e gli strumenti social rendono la pianificazione di un
 - Travel addicted che desiderano condividere esperienze
 - Gruppi di amici che vogliono pianificare itinerari collaborativi
 - Creatori di contenuti travel
-- Giovani tra i 18 e i 40 anni
 - Chiunque cerchi idee reali e affidabili per il prossimo viaggio
 
 # Competitors
