@@ -35,11 +35,11 @@
                     <input type="password" class="form-control" id="password" name="password" required/>
                     <br><button class="btn btn-primary" type="submit">Registra</button>
                 </form>
+                <br>
+                <a href="index_login.php"><button class="btn btn-primary">Login</button></a>
+                <br><br>
+                <a href="index.php"><button class="btn btn-primary">HOME</button></a>
             </div>
-            <br>
-            <a href="index_login.php"><button class="btn btn-primary">Login</button></a>
-            <br><br>
-            <a href="index.php"><button class="btn btn-primary">HOME</button></a>
 
         </main>
         <footer>

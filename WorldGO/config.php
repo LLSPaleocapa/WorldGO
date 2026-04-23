@@ -2,8 +2,8 @@
 $host = 'localhost';
 $dbname = 'my_lilisheng5ie';
 $username = 'lilisheng5ie';
-$password = ''; // Meglio inserire la password se presente
-$charset = 'utf8mb4'; // Ottimo per supportare tutti i caratteri
+$password = '';
+$charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 $options = [

@@ -1,4 +1,4 @@
-<?php
+.<?php
 require 'vendor/autoload.php';
 require 'config.php';
 use Firebase\JWT\JWT;

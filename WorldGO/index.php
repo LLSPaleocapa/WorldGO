@@ -22,14 +22,17 @@
         <header>
             <!-- place navbar here -->
         </header>
-        <main>
-            <h1 class="alert alert-success"> LOGIN </h1>
+        <main>    
+
+        <h1>WorldGO</h1>
             <?php if(isset($_GET["errore"])){ ?>
                     <h2 class="alert alert-danger">Errore</h2>
             <?php  } ?>
 
-            <?php if(isset($_GET["messaggio"])){ ?>
-                    <h2 class="alert alert-success">Registrazione con successo</h2>
+            <?php if(isset($_GET["messaggio"])){
+                $msg = htmlspecialchars($_GET["messaggio"], ENT_QUOTES, 'UTF-8');
+            ?>
+                    <h2 class="alert alert-success"><?php echo $msg; ?></h2>
             <?php  } ?>
 
             <div class="container">
