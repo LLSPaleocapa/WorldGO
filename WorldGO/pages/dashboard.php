@@ -24,6 +24,9 @@
         <div id="rolesData">Caricamento...</div>
     </div>
 
+    <a class="btn btn-primary" href="../index.php">HOME</a>
+    <a class="btn btn-primary" href="../auth/logout.php">LOGOUT</a>
+
     <script>
         const token = localStorage.getItem("jwt"); 
 
@@ -32,7 +35,7 @@
             document.getElementById("rolesData").innerText = "Token non trovato. Effettua il login.";
         } else {
             // Dati utente
-            fetch("api.php?route=utente", {
+            fetch("../api/api.php?route=utente", {
                 headers: { "Authorization": "Bearer " + token }
             })
             .then(res => res.json())
@@ -52,7 +55,7 @@
             });
 
             // Ruoli e permessi
-            fetch("api.php?route=visualizzaRuolo", {  // route corretta
+            fetch("../api/api.php?route=visualizzaRuolo", {  // route corretta
                 headers: { "Authorization": "Bearer " + token }
             })
             .then(res => res.json())

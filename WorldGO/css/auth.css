@@ -1,0 +1,85 @@
+body {
+    background-color: rgba(165, 213, 240, 0.5);
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Inter, system-ui, sans-serif;
+}
+
+.container {
+    text-align: center;
+
+    width: min(450px);
+    padding: 25px;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+svg{
+    color: rgb(74, 198, 247);
+    width: 5rem;
+    height: auto;
+}
+
+/* TITOLI */
+h4 {
+    margin-top: 10px;
+    color: #1f2937;
+}
+
+p {
+    color: #4b5563;
+    margin: -5px;
+}
+
+/* LABEL */
+.form-label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+/* INPUT */
+.form-control {
+    width: 100%;
+    padding: 5px;
+    margin-top: -3px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    transition: 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: rgb(45, 139, 190);
+    box-shadow: 0 0 0 3px rgba(45, 139, 190, 0.2);
+}
+
+/* BUTTON */
+.btn {
+    background-color: rgb(45, 139, 190);
+    color: white;
+
+    width: 100%;
+    padding: 10px;
+
+    border: none;
+    margin-top: 20px;
+    border-radius: 6px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    background-color: rgb(35, 120, 170);
+}

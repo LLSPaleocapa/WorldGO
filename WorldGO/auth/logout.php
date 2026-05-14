@@ -8,7 +8,7 @@
     session_destroy();
     //eliminare cookie
 
-    header("location: index.php");
+    header("location: ../index.php");
     exit();
 
 ?>

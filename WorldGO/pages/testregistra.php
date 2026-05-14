@@ -23,14 +23,14 @@ document.getElementById('start-concurrency-test').addEventListener('click', func
     data.append('password', password);
 
     // Invio prima richiesta
-    fetch('registra.php', {
+    fetch('../auth/register.php', {
         method: 'POST',
         body: data
     }).then(response => response.text())
       .then(text => console.log('Prima richiesta:', text));
 
     // Invio seconda richiesta quasi contemporaneamente
-    fetch('registra.php', {
+    fetch('../auth/register.php', {
         method: 'POST',
         body: data
     }).then(response => response.text())

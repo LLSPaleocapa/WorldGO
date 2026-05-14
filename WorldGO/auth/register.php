@@ -1,5 +1,5 @@
 <?php
-require 'config.php'; 
+require __DIR__ . '/../config/config.php'; 
 
 $username = $_POST["username"];
 $password = $_POST["password"];

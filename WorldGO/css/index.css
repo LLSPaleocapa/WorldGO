@@ -1,0 +1,115 @@
+:root {
+    color-scheme: light;
+    --text: #1f2937;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, system-ui, sans-serif;
+}
+
+/* NAVBAR FIXED SOPRA TUTTO */
+.navbar {
+    position: fixed;
+    top: -2px;
+    left: -2px;
+    width: 101%;
+    z-index: 10;
+
+    border: 1px solid rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.101);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    box-shadow: none;
+}
+
+.navbar a {
+    color: white;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+/* elimina background Bootstrap */
+.navbar, .navbar-collapse {
+    background-color: transparent !important;
+}
+
+svg{
+    color: white;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.9));
+    margin-right: 10px;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* LAYER BACKGROUND */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+
+    transform: scale(1.02);
+}
+
+/* layer visibile */
+.hero-bg.active {
+    opacity: 0.9;
+}
+
+/* contenuto sopra immagini */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* TESTO HERO */
+.hero h1 {
+    color: white;
+    font-size: clamp(2.5rem, 6.5vw, 8rem);
+    font-weight: 500;
+}
+
+.hero p {
+    color: rgba(255,255,255,0.85);
+    font-size: clamp(1rem, 1.5vw,38rem);
+    font-weight: 100;
+}
+
+/* BOTTONI */
+.btn-brand {
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+    border-radius: 999px;
+    padding: 0.9rem 1.6rem;
+    background: rgb(0, 0, 0, 0.5);
+}
+
+.btn-brand:hover {
+    color: white;
+    background: rgba(0, 0, 0);
+    opacity: 1;
+}
+
+.footer {
+    text-align: center;
+    color: var(--muted);
+}
