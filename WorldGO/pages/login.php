@@ -75,6 +75,7 @@
 
         fetch("../auth/login.php", {
             method: "POST",
+            credentials: "same-origin",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -85,11 +86,10 @@
         })
         .then(res => res.json())
         .then(data => {
-            if(data.token){
-                localStorage.setItem("jwt", data.token);
+            if(data.success){
                 window.location.href = "dashboard.php";
             } else {
-                alert(data.messaggio || "Errore login");
+                alert(data.messaggio || data.error || "Errore login");
             }
         })
         .catch(err => {

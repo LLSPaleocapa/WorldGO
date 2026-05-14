@@ -28,67 +28,59 @@
     <a class="btn btn-primary" href="../auth/logout.php">LOGOUT</a>
 
     <script>
-        const token = localStorage.getItem("jwt"); 
+        const userData = document.getElementById("userData");
+        const rolesData = document.getElementById("rolesData");
 
-        if (!token) {
-            document.getElementById("userData").innerText = "Token non trovato. Effettua il login.";
-            document.getElementById("rolesData").innerText = "Token non trovato. Effettua il login.";
-        } else {
-            // Dati utente
-            fetch("../api/api.php?route=utente", {
-                headers: { "Authorization": "Bearer " + token }
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    document.getElementById("userData").innerText = data.error;
-                } else {
-                    document.getElementById("userData").innerHTML = `
-                        <p><strong>Username:</strong> ${data.username}</p>
-                        <p><strong>User ID:</strong> ${data.user_id}</p>
-                    `;
-                }
-            })
-            .catch(err => {
-                document.getElementById("userData").innerText = "Errore nel recupero dei dati utente";
-                console.error(err);
-            });
+        fetch("../api/api.php?route=utente", {
+            credentials: "same-origin"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                userData.innerText = data.error;
+            } else {
+                userData.innerHTML = `
+                    <p><strong>Username:</strong> ${data.username}</p>
+                    <p><strong>User ID:</strong> ${data.user_id}</p>
+                `;
+            }
+        })
+        .catch(err => {
+            userData.innerText = "Errore nel recupero dei dati utente";
+            console.error(err);
+        });
 
-            // Ruoli e permessi
-            fetch("../api/api.php?route=visualizzaRuolo", {  // route corretta
-                headers: { "Authorization": "Bearer " + token }
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    document.getElementById("rolesData").innerText = data.error;
+        fetch("../api/api.php?route=visualizzaRuolo", {
+            credentials: "same-origin"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                rolesData.innerText = data.error;
+            } else {
+                if (!data.roles || Object.keys(data.roles).length === 0) {
+                    rolesData.innerText = "Nessun ruolo o permesso assegnato.";
                 } else {
-                    // Controllo se ci sono ruoli
-                    if (!data.roles || Object.keys(data.roles).length === 0) {
-                        document.getElementById("rolesData").innerText = "Nessun ruolo o permesso assegnato.";
-                    } else {
-                        let html = "";
-                        for (const role in data.roles) {
-                            html += `<h3>${role}</h3><ul>`;
-                            if (data.roles[role].length === 0) {
-                                html += "<li>Nessun permesso</li>";
-                            } else {
-                                data.roles[role].forEach(perm => {
-                                    html += `<li>${perm}</li>`;
-                                });
-                            }
-                            html += `</ul>`;
+                    let html = "";
+                    for (const role in data.roles) {
+                        html += `<h3>${role}</h3><ul>`;
+                        if (data.roles[role].length === 0) {
+                            html += "<li>Nessun permesso</li>";
+                        } else {
+                            data.roles[role].forEach(perm => {
+                                html += `<li>${perm}</li>`;
+                            });
                         }
-                        document.getElementById("rolesData").innerHTML = html;
+                        html += `</ul>`;
                     }
+                    rolesData.innerHTML = html;
                 }
-            })
-            .catch(err => {
-                document.getElementById("rolesData").innerText = "Errore nel recupero dei ruoli";
-                console.error(err);
-            });
-
-        }
+            }
+        })
+        .catch(err => {
+            rolesData.innerText = "Errore nel recupero dei ruoli";
+            console.error(err);
+        });
     </script>
 </body>
 </html>

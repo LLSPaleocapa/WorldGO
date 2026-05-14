@@ -8,13 +8,18 @@ header('Content-Type: application/json');
 
 // Recupero token JWT
 $headers = array_change_key_case(getallheaders(), CASE_LOWER);
-$token = $headers['authorization'] ?? '';
+$token = '';
+if (!empty($headers['authorization'])) {
+    $token = str_replace("Bearer ", "", $headers['authorization']);
+} elseif (!empty($_COOKIE['jwt'])) {
+    $token = $_COOKIE['jwt'];
+}
+
 if (!$token) {
     http_response_code(401);
     echo json_encode(['error'=>'Token mancante']);
     exit;
 }
-$token = str_replace("Bearer ", "", $token);
 
 try {
     $decoded = JWT::decode($token, new Key(SECRET_KEY,'HS256'));
@@ -77,8 +82,16 @@ switch($route){
         break;
 
     case 'logout':
-        // Non si può invalidare JWT lato server se è solo firmato
-        echo json_encode(['message'=>'Logout lato client: rimuovi il token dal localStorage']);
+        // Non si può invalidare JWT lato server se è solo firmato,
+        // ma possiamo eliminare il cookie HttpOnly lato client.
+        setcookie('jwt', '', [
+            'expires' => time() - 3600,
+            'path' => '/',
+            'httponly' => true,
+            'samesite' => 'Strict',
+            'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
+        ]);
+        echo json_encode(['message'=>'Logout lato client: cookie JWT eliminato']);
         break;
 
     default:

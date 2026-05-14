@@ -1,4 +1,4 @@
-const images = [
+const images = [            //immagini di sfondo
     "imgs/indexbg1.jpg",
     "imgs/indexbg2.jpg",
     "imgs/indexbg3.jpg",
@@ -38,3 +38,28 @@ setInterval(() => {
     currentLayer = nextLayer;
 
 }, 7000);
+
+
+
+
+//posts in highlithgt
+fetch("./actions/highlighted.php")
+.then(response => response.json())
+.then(data => {
+
+    const container = document.getElementById("highlighted-posts");
+
+    data.forEach(post => {
+
+        container.innerHTML += `
+            <div class="highlighted-post" onclick="window.location.href='pages/post_details.php?id=${post.id}'" style="cursor: pointer;">
+                ${post.url_media ? `<img src="${post.url_media}" alt="Immagine del post" class="post-image">` : ''}
+                <h2>${post.titolo}</h2>
+                <p>${post.descrizione}</p>
+                <p>by: ${post.username}</p>
+                <p>❤️${post.numero_likes}</p>
+            </div>
+        `;
+    });
+
+});

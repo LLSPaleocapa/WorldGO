@@ -33,9 +33,14 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="nav">
             <ul class="navbar-nav gap-3">
-                <li class="nav-item"><a class="nav-link text-white" href="pages/login.php">Accedi</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="pages/register.php">Registrati</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="pages/dashboard.php">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="pages/create_post.php">Pubblica</a></li>
+                <?php if ($user_id): ?>
+                    <li class="nav-item"><a class="nav-link text-white" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="../auth/logout.php">Esci</a></li>
+                <?php else: ?>
+                    <li class="nav-item"><a class="nav-link text-white" href="login.php">Accedi</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="register.php">Registrati</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
@@ -57,13 +62,16 @@
                 <a href="pages/register.php" class="btn btn-brand">Registrati</a>
             </div>
         </div>
-
-    </section>
 </main>
 
-<section class="posts in evidenza">
+<section class="highlights">
     <h2>In evidenza</h2>
     <p>Scopri le mete più amate dalla community e lasciati ispirare per il tuo prossimo viaggio</p>
+
+    <div id="highlighted-posts">
+        <!-- I post in evidenza verranno caricati qui -->
+    </div>
+
 </section>
 
 <!-- FOOTER -->

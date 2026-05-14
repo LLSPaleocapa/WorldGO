@@ -31,6 +31,15 @@ if($utente && password_verify($password, $utente['password'])) {
     ];
 
     $jwt = JWT::encode($payload, SECRET_KEY, 'HS256');
+
+    $secure = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+    setcookie('jwt', $jwt, [
+        'expires' => time() + 600,
+        'path' => '/',
+        'httponly' => true,
+        'samesite' => 'Strict',
+        'secure' => $secure
+    ]);
     
     $response = [
         "success" => true,

@@ -109,7 +109,85 @@ svg{
     opacity: 1;
 }
 
+
+/* HIGHLIGHTS */
+.highlights {
+    padding: 80px 20px;
+    text-align: center;
+    background: white;
+}
+
+.highlights h2 {
+    color: black;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.highlights p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+/* container cards */
+#highlighted-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* card */
+.highlighted-post {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.highlighted-post:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.12);
+}
+
+.post-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* contenuto card */
+.highlighted-post-content {
+    padding: 20px;
+}
+
+.highlighted-post h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.highlighted-post p {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+
+
+/* FOOTER */
 .footer {
     text-align: center;
-    color: var(--muted);
+    padding: 30px;
+    color: rgba(0,0,0,0.6);
 }
