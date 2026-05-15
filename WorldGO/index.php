@@ -35,11 +35,11 @@
             <ul class="navbar-nav gap-3">
                 <li class="nav-item"><a class="nav-link text-white" href="pages/create_post.php">Pubblica</a></li>
                 <?php if ($user_id): ?>
-                    <li class="nav-item"><a class="nav-link text-white" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="../pages/dashboard.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="../auth/logout.php">Esci</a></li>
                 <?php else: ?>
-                    <li class="nav-item"><a class="nav-link text-white" href="login.php">Accedi</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="register.php">Registrati</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="./pages/login.php">Accedi</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="./pages/register.php">Registrati</a></li>
                 <?php endif; ?>
             </ul>
         </div>

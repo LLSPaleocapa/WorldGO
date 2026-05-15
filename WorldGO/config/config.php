@@ -23,3 +23,7 @@ try {
 }
 
 define('SECRET_KEY', 'mia_chiave_super_segreta_molto_lunga');
+// Per localhost: BASE_URL deve essere '/'
+// Per AlterVista con subdirectory: BASE_URL deve essere '/WorldGO/' o il path effettivo
+define('BASE_URL', getenv('BASE_URL') ?: '/');
+define('UPLOADS_DIR', __DIR__ . '/../imgs/uploads/posts/');

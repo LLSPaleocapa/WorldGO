@@ -26,6 +26,18 @@ try {
     $stmt->execute();
     $posts = $stmt->fetchAll();
 
+
+    foreach ($posts as &$post) {
+        if (!empty($post['url_media'])) {
+            // Se non è un URL assoluto, aggiungi BASE_URL
+            if (!preg_match('~^https?://~', $post['url_media'])) {
+                $post['url_media'] =ltrim($post['url_media'], '/');
+            }
+        } else {
+            $post['url_media'] = '/imgs/uploads/posts/placeholder.jpg';
+        }
+    }
+
     header('Content-Type: application/json');
     echo json_encode($posts);
 

@@ -89,7 +89,7 @@ if ($token) {
             
             if (data.url_media) {
                 const img = document.getElementById('post-image');
-                img.src = data.url_media;
+                img.src = ".." + data.url_media;
                 img.style.display = 'block';
             }
 

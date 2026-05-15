@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Immagini</title>
+</head>
+<body>
+    <h1>Test Caricamento Immagini</h1>
+    
+    <h2>Percorso 1: /imgs/uploads/posts/6a062b1f5a8cd.jpg</h2>
+    <img src="/imgs/uploads/posts/6a062b1f5a8cd.jpg" alt="Test 1" width="300" onerror="this.innerHTML='Errore caricamento'">
+    
+    <h2>Percorso 2: /imgs/posts/6a0628cc84426.png</h2>
+    <img src="/imgs/posts/6a0628cc84426.png" alt="Test 2" width="300" onerror="this.innerHTML='Errore caricamento'">
+    
+    <h2>Percorso 3: imgs/uploads/posts/6a062b1f5a8cd.jpg (relativo)</h2>
+    <img src="imgs/uploads/posts/6a062b1f5a8cd.jpg" alt="Test 3" width="300" onerror="this.innerHTML='Errore caricamento'">
+    
+    <script>
+        console.log("Controllo percorsi immagini:");
+        document.querySelectorAll('img').forEach((img, i) => {
+            img.addEventListener('load', () => console.log(`Immagine ${i+1}: CARICATA`));
+            img.addEventListener('error', () => console.log(`Immagine ${i+1}: ERRORE - ${img.src}`));
+        });
+    </script>
+</body>
+</html>

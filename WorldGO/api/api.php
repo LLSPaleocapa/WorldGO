@@ -81,6 +81,48 @@ switch($route){
         }
         break;
 
+    case 'userPosts':
+        try {
+            $sql = "
+                SELECT 
+                    p.id,
+                    p.titolo,
+                    p.descrizione,
+                    p.url_media,
+                    p.data_pubblicazione,
+                    u.username,
+                    COUNT(l.id_post) AS numero_likes
+                FROM WorldGO_posts p
+                LEFT JOIN WorldGO_likes l ON p.id = l.id_post
+                LEFT JOIN WorldGO_users u ON p.id_utente = u.id
+                WHERE p.id_utente = :user_id
+                GROUP BY p.id
+                ORDER BY p.data_pubblicazione DESC
+            ";
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['user_id' => $decoded->user_id]);
+            $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Normalizza i percorsi delle immagini - usa BASE_URL per renderli assoluti
+            foreach ($posts as &$post) {
+                if (!empty($post['url_media'])) {
+                    // Se non è un URL assoluto, aggiungi BASE_URL
+                    if (!preg_match('~^https?://~', $post['url_media'])) {
+                        $post['url_media'] = BASE_URL . ltrim($post['url_media'], '/');
+                    }
+                } else {
+                    $post['url_media'] = BASE_URL . 'imgs/uploads/posts/placeholder.jpg';
+                }
+            }
+
+            echo json_encode($posts);
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Errore nel recupero dei post utente: ' . $e->getMessage()]);
+        }
+        break;
+
     case 'logout':
         // Non si può invalidare JWT lato server se è solo firmato,
         // ma possiamo eliminare il cookie HttpOnly lato client.

@@ -2,6 +2,7 @@
 
 require_once '../vendor/autoload.php';
 require_once '../config/config-web.php';
+require_once '../actions/valida_create_post.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -28,13 +29,7 @@ try {
     $url_media_input = $_POST['url_media'] ?? '';
 
     // Validazione base
-    if (empty($titolo) || empty($descrizione)) {
-        throw new Exception('Titolo e descrizione sono obbligatori');
-    }
-
-    if (strlen($titolo) > 30) {
-        throw new Exception('Il titolo non può superare 30 caratteri');
-    }
+    validatePost($titolo, $descrizione);
 
     $url_media = $url_media_input;
     $tipo_media = 1; // 1 = immagine
@@ -56,7 +51,7 @@ try {
         }
 
         // Creare directory se non esiste
-        $upload_dir = '../imgs/uploads/posts/';
+        $upload_dir = UPLOADS_DIR;
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0755, true);
         }
@@ -68,7 +63,7 @@ try {
             throw new Exception('Errore durante il caricamento del file');
         }
 
-        $url_media = 'imgs/uploads/posts/' . $new_name;
+        $url_media = BASE_URL . 'imgs/uploads/posts/' . $new_name;
     } elseif (isset($_FILES['immagine']) && $_FILES['immagine']['error'] != 0) {
         // Gestisci errori di upload
         $upload_errors = [
@@ -86,7 +81,7 @@ try {
     }
 
     if (empty($url_media)) {
-        $url_media = 'https://via.placeholder.com/500x300?text=WorldGO';
+        $url_media = BASE_URL . 'imgs/uploads/posts/placeholder.jpg';
     }
 
     // Genera ID univoco per il post

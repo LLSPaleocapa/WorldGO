@@ -61,11 +61,15 @@ try {
         }
     }
 
-    // Costruisci il percorso corretto dell'immagine
+    // Normalizza il percorso dell'immagine - usa BASE_URL per renderlo assoluto
     $image_url = $post['url_media'];
-    if (!filter_var($image_url, FILTER_VALIDATE_URL)) {
-        // Se non è un URL assoluto, aggiungi il prefisso relativo
-        $image_url = '../' . $image_url;
+    if (!empty($image_url)) {
+        // Se non è un URL assoluto, aggiungi BASE_URL
+        if (!preg_match('~^https?://~', $image_url)) {
+            $image_url = BASE_URL . ltrim($image_url, '/');
+        }
+    } else {
+        $image_url = BASE_URL . 'imgs/uploads/posts/placeholder.jpg';
     }
 
     echo json_encode([
